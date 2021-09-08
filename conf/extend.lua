@@ -204,7 +204,6 @@ extend = {
 	-- 	named = 'watcher',
 	-- 	enable = _isdev,
 	-- 	default = {
-	-- 		trace		= true,
 	-- 		handle	= 'resty.tofu.extend.jili',
 	-- 	}
 	-- },

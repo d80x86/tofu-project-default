@@ -13,7 +13,7 @@ usage: %s install
 
 
 local _M = {
-	_DESCRIPTION	= 'install deps to current lua_module',
+	_DESCRIPTION	= 'update deps of isntalled',
 	_USAGE				= _usage,
 }
 
@@ -21,30 +21,22 @@ local _M = {
 local _resty_modules_path = 'lua_modules/resty'
 local _rocks_modules_path = 'lua_modules/rocks'
 
-local function _init_dir()
-	local cmd_list = table.concat({
-											'mkdir -p ' .. _resty_modules_path ,
-											'mkdir -p ' .. _rocks_modules_path ,
-										}, ' & ')
-	return os.execute(cmd_list)
-end
 
-
-local function _opm_installer(package)
-	local cmd = 'opm --install-dir=' .. _resty_modules_path .. ' install ' .. package
+local function _opm_updater(package)
+	local cmd = 'opm --install-dir=' .. _resty_modules_path .. ' upgrade ' .. package
 	return os.execute(cmd)
 end
 
 
-local function _luarocks_installer(package)
+local function _luarocks_updater(package)
 	local cmd = 'luarocks --tree ' .. _rocks_modules_path .. ' install ' .. package
 	return os.execute(cmd)
 end
 
 
-local _installers = {
-	opm				= _opm_installer,
-	luarocks	= _luarocks_installer,
+local _updaters = {
+	opm				= _opm_updater,
+	luarocks	= _luarocks_updater,
 }
 
 
@@ -59,10 +51,6 @@ function _M.exec(opts)
 
 	local mf = {}
 	setfenv(f, mf)()
-
-	if mf.deps and #mf.deps then
-		_init_dir()
-	end
 
 	local name = nil
 	for _, p in ipairs( mf.deps ) do
@@ -79,12 +67,12 @@ function _M.exec(opts)
 			return
 		end
 
-		local installer = _installers[name]
-		if not installer then
-			print('\27[0;31merror installer ' .. name .. '\27[m')
+		local updater = _updaters[name]
+		if not updater then
+			print('\27[0;31merror updater ' .. name .. '\27[m')
 		end
-		print('install ' .. '\27[0;32m' .. p .. '\27[m')
-		if not installer(p) then
+		print('updater ' .. '\27[0;32m' .. p .. '\27[m')
+		if not updater(p) then
 			return
 		end
 	end
@@ -92,5 +80,5 @@ function _M.exec(opts)
 end
 
 
-
 return _M
+

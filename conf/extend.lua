@@ -155,8 +155,8 @@ extend = {
 	-- 			-- storage	= 'cookie', -- 存储方式
 	-- 			-- cookie = {},
 
-	-- 			storage	= 'shm', -- 存储方式
-	-- 			shm		= { store = 'tofu_sessions'},	-- 匹配 tofu.nginx.conf 中的 lua_shared_dict
+	-- 			-- storage	= 'shm', -- 存储方式
+	-- 			-- shm		= { store = 'tofu_sessions'},	-- 匹配 tofu.nginx.conf 中的 lua_shared_dict
 	-- 			-- redis	= {},
 	-- 		},
 	-- 	}

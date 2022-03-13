@@ -3,6 +3,9 @@
 
 /logs
 /resty_modules
+/lua_modules
 
 /.runtime
 
+/conf/config.development.lua
+/conf/config.production.lua

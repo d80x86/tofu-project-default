@@ -2,7 +2,7 @@
 -- 中间件配置
 --
 
-local _isdev	= 'development' == tofu.env
+local _isdev	= 'development' == tofu.ENV
 
 --
 -- middleware list

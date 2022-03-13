@@ -5,7 +5,7 @@
 
 local	_log		= require 'resty.tofu.extend.log'
 
-local _isdev	= 'development' == tofu.env
+local _isdev	= 'development' == tofu.ENV
 
 
 --

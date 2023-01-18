@@ -36,7 +36,7 @@ extend = {
 		default = {
 			handle	= 'resty.tofu.extend.config',
 			options	= {
-				env			= tofu.env,
+				env			= tofu.ENV,
 				prefix	= tofu.ROOT_PATH .. 'conf/',
 			}
 		}

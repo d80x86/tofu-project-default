@@ -8,10 +8,10 @@
 
 ```sh
 ## 从github中clone
-git clone --depth=1 https://github.com/d80x86/tofu-project-default.git new_name
+git clone --depth=1 https://github.com/d80x86/tofu-project-default.git new_project_name
 
 ## 进入项目
-cd new_name
+cd new_project_name
 
 ## 安装tofu framework
 ./tofu install
@@ -32,8 +32,6 @@ cd new_name
 ## 移除无用的旧git信息
 rm -rf .git
 
-## 添加
-echo '/lua_modules' >> .gitignore
 ```
 
 
